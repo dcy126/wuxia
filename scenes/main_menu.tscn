@@ -1,0 +1,508 @@
+[gd_scene load_steps=5 format=3 uid://d1q5k7w9z2x3y]
+
+[ext_resource type="Script" path="res://scripts/ui/main_menu_controller.gd" id="1"]
+[ext_resource type="Texture2D" path="res://assets/ui/main_menu_bg.jpg" id="2"]
+[ext_resource type="FontFile" path="res://assets/fonts/zh_CN.ttf" id="3"]
+[ext_resource type="AudioStream" path="res://assets/audio/music/main_menu.ogg" id="4"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/menu_click.ogg" id="5"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/menu_hover.ogg" id="6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1"]
+bg_color = Color(0.1, 0.08, 0.06, 0.8)
+border_width_bottom = 2
+border_width_left = 2
+border_width_right = 2
+border_width_top = 2
+border_color = Color(0.6, 0.45, 0.25, 0.8)
+corner_radius_bottom_left = 8
+corner_radius_bottom_right = 8
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 0.5)
+shadow_offset = Vector2(2, 2)
+shadow_size = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2"]
+bg_color = Color(0.15, 0.12, 0.08, 0.9)
+border_width_bottom = 2
+border_width_left = 2
+border_width_right = 2
+border_width_top = 2
+border_color = Color(0.7, 0.55, 0.3, 1)
+corner_radius_bottom_left = 10
+corner_radius_bottom_right = 10
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 0.6)
+shadow_offset = Vector2(3, 3)
+shadow_size = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3"]
+bg_color = Color(0.2, 0.15, 0.1, 0.7)
+border_width_bottom = 1
+border_width_left = 1
+border_width_right = 1
+border_width_top = 1
+border_color = Color(0.5, 0.4, 0.25, 0.6)
+corner_radius_bottom_left = 6
+corner_radius_bottom_right = 6
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4"]
+bg_color = Color(0.3, 0.2, 0.12, 0.85)
+border_width_bottom = 2
+border_width_left = 2
+border_width_right = 2
+border_width_top = 2
+border_color = Color(0.8, 0.6, 0.3, 1)
+corner_radius_bottom_left = 8
+corner_radius_bottom_right = 8
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5"]
+bg_color = Color(0.1, 0.08, 0.05, 0.95)
+border_width_bottom = 2
+border_width_left = 2
+border_width_right = 2
+border_width_top = 2
+border_color = Color(0.6, 0.45, 0.25, 0.9)
+corner_radius_bottom_left = 12
+corner_radius_bottom_right = 12
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 0.7)
+shadow_offset = Vector2(4, 4)
+shadow_size = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6"]
+bg_color = Color(0.25, 0.18, 0.1, 0.9)
+border_width_bottom = 1
+border_width_left = 1
+border_width_right = 1
+border_width_top = 1
+border_color = Color(0.7, 0.55, 0.35, 0.8)
+corner_radius_bottom_left = 6
+corner_radius_bottom_right = 6
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+
+[node name="UILayer" type="Control" layout_mode=3]
+script = ExtResource("1")
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="BackgroundLayer" type="TextureRect" parent="UILayer" layout_mode=3]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource("2")
+stretch_mode = 3
+
+[node name="FogLayer" type="ColorRect" parent="UILayer" layout_mode=3]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.05, 0.03, 0.01, 0.5)
+
+[node name="Vignette" type="TextureRect" parent="UILayer" layout_mode=3]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource("2")
+modulate = Color(0, 0, 0, 0.3)
+stretch_mode = 3
+
+[node name="TitleContainer" type="VBoxContainer" parent="UILayer" layout_mode=2]
+anchor_left = 0.5
+anchor_top = 0.15
+anchor_right = 0.5
+anchor_bottom = 0.15
+offset_left = -400
+offset_top = -100
+offset_right = 400
+offset_bottom = 100
+alignment = 2
+
+[node name="TitleText" type="Label" parent="UILayer/TitleContainer" layout_mode=2]
+text = "武侠江湖"
+horizontal_alignment = 2
+vertical_alignment = 2
+autowrap_mode = 1
+theme_override_fonts/font = ExtResource("3")
+theme_override_font_sizes/font_size = 72
+theme_override_colors/font_color = Color(0.95, 0.85, 0.6, 1)
+theme_override_colors/font_outline_color = Color(0.2, 0.1, 0.05, 1)
+theme_override_constants/outline_size = 3
+
+[node name="SubtitleText" type="Label" parent="UILayer/TitleContainer" layout_mode=2]
+text = "一剑光寒十四州，心中有剑便是江湖"
+horizontal_alignment = 2
+vertical_alignment = 2
+autowrap_mode = 1
+theme_override_fonts/font = ExtResource("3")
+theme_override_font_sizes/font_size = 24
+theme_override_colors/font_color = Color(0.8, 0.65, 0.4, 0.9)
+theme_override_colors/font_outline_color = Color(0.1, 0.05, 0.02, 1)
+theme_override_constants/outline_size = 2
+
+[node name="MenuContainer" type="VBoxContainer" parent="UILayer" layout_mode=2]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200
+offset_top = -150
+offset_right = 200
+offset_bottom = 150
+alignment = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2")
+
+[node name="BtnNewGame" type="Button" parent="UILayer/MenuContainer" layout_mode=2]
+text = "开始新游戏"
+theme_override_fonts/font = ExtResource("3")
+theme_override_font_sizes/font_size = 28
+theme_override_colors/font_color = Color(0.95, 0.85, 0.65, 1)
+theme_override_colors/font_hover_color = Color(1, 0.9, 0.5, 1)
+theme_override_colors/font_pressed_color = Color(0.8, 0.65, 0.3, 1)
+theme_override_colors/font_disabled_color = Color(0.4, 0.3, 0.2, 0.5)
+theme_override_styles/normal = SubResource("StyleBoxFlat_1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_3")
+theme_override_styles/focus = SubResource("StyleBoxFlat_4")
+custom_minimum_size = Vector2(320, 60)
+
+[node name="BtnLoadGame" type="Button" parent="UILayer/MenuContainer" layout_mode=2]
+text = "继续游戏"
+theme_override_fonts/font = ExtResource("3")
+theme_override_font_sizes/font_size = 28
+theme_override_colors/font_color = Color(0.95, 0.85, 0.65, 1)
+theme_override_colors/font_hover_color = Color(1, 0.9, 0.5, 1)
+theme_override_colors/font_pressed_color = Color(0.8, 0.65, 0.3, 1)
+theme_override_colors/font_disabled_color = Color(0.4, 0.3, 0.2, 0.5)
+theme_override_styles/normal = SubResource("StyleBoxFlat_1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_3")
+theme_override_styles/focus = SubResource("StyleBoxFlat_4")
+custom_minimum_size = Vector2(320, 60)
+
+[node name="BtnSettings" type="Button" parent="UILayer/MenuContainer" layout_mode=2]
+text = "游戏设置"
+theme_override_fonts/font = ExtResource("3")
+theme_override_font_sizes/font_size = 28
+theme_override_colors/font_color = Color(0.95, 0.85, 0.65, 1)
+theme_override_colors/font_hover_color = Color(1, 0.9, 0.5, 1)
+theme_override_colors/font_pressed_color = Color(0.8, 0.65, 0.3, 1)
+theme_override_colors/font_disabled_color = Color(0.4, 0.3, 0.2, 0.5)
+theme_override_styles/normal = SubResource("StyleBoxFlat_1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_3")
+theme_override_styles/focus = SubResource("StyleBoxFlat_4")
+custom_minimum_size = Vector2(320, 60)
+
+[node name="BtnExit" type="Button" parent="UILayer/MenuContainer" layout_mode=2]
+text = "退出游戏"
+theme_override_fonts/font = ExtResource("3")
+theme_override_font_sizes/font_size = 28
+theme_override_colors/font_color = Color(0.95, 0.85, 0.65, 1)
+theme_override_colors/font_hover_color = Color(1, 0.9, 0.5, 1)
+theme_override_colors/font_pressed_color = Color(0.8, 0.65, 0.3, 1)
+theme_override_colors/font_disabled_color = Color(0.4, 0.3, 0.2, 0.5)
+theme_override_styles/normal = SubResource("StyleBoxFlat_1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_3")
+theme_override_styles/focus = SubResource("StyleBoxFlat_4")
+custom_minimum_size = Vector2(320, 60)
+
+[node name="SettingsPanel" type="Panel" parent="UILayer" layout_mode=2]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300
+offset_top = -250
+offset_right = 300
+offset_bottom = 250
+theme_override_styles/panel = SubResource("StyleBoxFlat_5")
+visible = false
+
+[node name="SettingsTitle" type="Label" parent="UILayer/SettingsPanel" layout_mode=2]
+anchor_left = 0.5
+anchor_top = 0.05
+anchor_right = 0.5
+anchor_bottom = 0.05
+offset_left = -200
+offset_top = 20
+offset_right = 200
+offset_bottom = 60
+text = "游戏设置"
+horizontal_alignment = 2
+vertical_alignment = 2
+theme_override_fonts/font = ExtResource("3")
+theme_override_font_sizes/font_size = 36
+theme_override_colors/font_color = Color(0.95, 0.85, 0.6, 1)
+theme_override_colors/font_outline_color = Color(0.2, 0.1, 0.05, 1)
+theme_override_constants/outline_size = 2
+
+[node name="SettingsContainer" type="VBoxContainer" parent="UILayer/SettingsPanel" layout_mode=2]
+anchor_left = 0.1
+anchor_top = 0.18
+anchor_right = 0.9
+anchor_bottom = 0.75
+offset_left = 0
+offset_top = 0
+offset_right = 0
+offset_bottom = 0
+alignment = 2
+theme_override_constants/separation = 20
+
+[node name="AudioSettings" type="VBoxContainer" parent="UILayer/SettingsPanel/SettingsContainer" layout_mode=2]
+theme_override_constants/separation = 15
+
+[node name="AudioTitle" type="Label" parent="UILayer/SettingsPanel/SettingsContainer/AudioSettings" layout_mode=2]
+text = "音频设置"
+horizontal_alignment = 0
+theme_override_fonts/font = ExtResource("3")
+theme_override_font_sizes/font_size = 24
+theme_override_colors/font_color = Color(0.85, 0.7, 0.4, 1)
+
+[node name="MusicSettings" type="HBoxContainer" parent="UILayer/SettingsPanel/SettingsContainer/AudioSettings" layout_mode=2]
+theme_override_constants/separation = 20
+
+[node name="MusicLabel" type="Label" parent="UILayer/SettingsPanel/SettingsContainer/AudioSettings/MusicSettings" layout_mode=2]
+text = "背景音乐"
+horizontal_alignment = 0
+custom_minimum_size = Vector2(120, 0)
+theme_override_fonts/font = ExtResource("3")
+theme_override_font_sizes/font_size = 20
+theme_override_colors/font_color = Color(0.9, 0.8, 0.6, 1)
+
+[node name="MusicSlider" type="HSlider" parent="UILayer/SettingsPanel/SettingsContainer/AudioSettings/MusicSettings" layout_mode=2]
+min_value = 0.0
+max_value = 1.0
+step = 0.05
+value = 0.8
+custom_minimum_size = Vector2(200, 30)
+
+[node name="MusicValue" type="Label" parent="UILayer/SettingsPanel/SettingsContainer/AudioSettings/MusicSettings" layout_mode=2]
+text = "80%"
+horizontal_alignment = 2
+custom_minimum_size = Vector2(60, 0)
+theme_override_fonts/font = ExtResource("3")
+theme_override_font_sizes/font_size = 18
+theme_override_colors/font_color = Color(0.8, 0.7, 0.5, 1)
+
+[node name="SfxSettings" type="HBoxContainer" parent="UILayer/SettingsPanel/SettingsContainer/AudioSettings" layout_mode=2]
+theme_override_constants/separation = 20
+
+[node name="SfxLabel" type="Label" parent="UILayer/SettingsPanel/SettingsContainer/AudioSettings/SfxSettings" layout_mode=2]
+text = "音效音量"
+horizontal_alignment = 0
+custom_minimum_size = Vector2(120, 0)
+theme_override_fonts/font = ExtResource("3")
+theme_override_font_sizes/font_size = 20
+theme_override_colors/font_color = Color(0.9, 0.8, 0.6, 1)
+
+[node name="SfxSlider" type="HSlider" parent="UILayer/SettingsPanel/SettingsContainer/AudioSettings/SfxSettings" layout_mode=2]
+min_value = 0.0
+max_value = 1.0
+step = 0.05
+value = 1.0
+custom_minimum_size = Vector2(200, 30)
+
+[node name="SfxValue" type="Label" parent="UILayer/SettingsPanel/SettingsContainer/AudioSettings/SfxSettings" layout_mode=2]
+text = "100%"
+horizontal_alignment = 2
+custom_minimum_size = Vector2(60, 0)
+theme_override_fonts/font = ExtResource("3")
+theme_override_font_sizes/font_size = 18
+theme_override_colors/font_color = Color(0.8, 0.7, 0.5, 1)
+
+[node name="DisplaySettings" type="VBoxContainer" parent="UILayer/SettingsPanel/SettingsContainer" layout_mode=2]
+theme_override_constants/separation = 15
+
+[node name="DisplayTitle" type="Label" parent="UILayer/SettingsPanel/SettingsContainer/DisplaySettings" layout_mode=2]
+text = "显示设置"
+horizontal_alignment = 0
+theme_override_fonts/font = ExtResource("3")
+theme_override_font_sizes/font_size = 24
+theme_override_colors/font_color = Color(0.85, 0.7, 0.4, 1)
+
+[node name="FullscreenCheck" type="CheckButton" parent="UILayer/SettingsPanel/SettingsContainer/DisplaySettings" layout_mode=2]
+text = "全屏模式"
+theme_override_fonts/font = ExtResource("3")
+theme_override_font_sizes/font_size = 20
+theme_override_colors/font_color = Color(0.9, 0.8, 0.6, 1)
+theme_override_colors/font_hover_color = Color(1, 0.9, 0.5, 1)
+
+[node name="BtnCloseSettings" type="Button" parent="UILayer/SettingsPanel" layout_mode=2]
+anchor_left = 0.5
+anchor_top = 0.88
+anchor_right = 0.5
+anchor_bottom = 0.88
+offset_left = -120
+offset_top = -30
+offset_right = 120
+offset_bottom = 30
+text = "确定"
+theme_override_fonts/font = ExtResource("3")
+theme_override_font_sizes/font_size = 24
+theme_override_colors/font_color = Color(0.95, 0.85, 0.65, 1)
+theme_override_colors/font_hover_color = Color(1, 0.9, 0.5, 1)
+theme_override_colors/font_pressed_color = Color(0.8, 0.65, 0.3, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6")
+theme_override_styles/focus = SubResource("StyleBoxFlat_4")
+custom_minimum_size = Vector2(200, 50)
+
+[node name="LoadGamePanel" type="Panel" parent="UILayer" layout_mode=2]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400
+offset_top = -300
+offset_right = 400
+offset_bottom = 300
+theme_override_styles/panel = SubResource("StyleBoxFlat_5")
+visible = false
+
+[node name="LoadGameTitle" type="Label" parent="UILayer/LoadGamePanel" layout_mode=2]
+anchor_left = 0.5
+anchor_top = 0.05
+anchor_right = 0.5
+anchor_bottom = 0.05
+offset_left = -250
+offset_top = 20
+offset_right = 250
+offset_bottom = 60
+text = "选择存档"
+horizontal_alignment = 2
+vertical_alignment = 2
+theme_override_fonts/font = ExtResource("3")
+theme_override_font_sizes/font_size = 36
+theme_override_colors/font_color = Color(0.95, 0.85, 0.6, 1)
+theme_override_colors/font_outline_color = Color(0.2, 0.1, 0.05, 1)
+theme_override_constants/outline_size = 2
+
+[node name="LoadGameContainer" type="VBoxContainer" parent="UILayer/LoadGamePanel" layout_mode=2]
+anchor_left = 0.1
+anchor_top = 0.15
+anchor_right = 0.9
+anchor_bottom = 0.8
+offset_left = 0
+offset_top = 0
+offset_right = 0
+offset_bottom = 0
+alignment = 2
+theme_override_constants/separation = 15
+
+[node name="SaveSlotContainer" type="VBoxContainer" parent="UILayer/LoadGamePanel/LoadGameContainer" layout_mode=2]
+theme_override_constants/separation = 12
+
+[node name="SaveSlot1" type="Button" parent="UILayer/LoadGamePanel/LoadGameContainer/SaveSlotContainer" layout_mode=2]
+text = "存档槽 1 - 空"
+horizontal_alignment = 0
+theme_override_fonts/font = ExtResource("3")
+theme_override_font_sizes/font_size = 20
+theme_override_colors/font_color = Color(0.9, 0.8, 0.6, 1)
+theme_override_colors/font_hover_color = Color(1, 0.9, 0.5, 1)
+theme_override_colors/font_disabled_color = Color(0.4, 0.3, 0.2, 0.5)
+theme_override_styles/normal = SubResource("StyleBoxFlat_3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_3")
+theme_override_styles/focus = SubResource("StyleBoxFlat_6")
+custom_minimum_size = Vector2(0, 50)
+
+[node name="SaveSlot2" type="Button" parent="UILayer/LoadGamePanel/LoadGameContainer/SaveSlotContainer" layout_mode=2]
+text = "存档槽 2 - 空"
+horizontal_alignment = 0
+theme_override_fonts/font = ExtResource("3")
+theme_override_font_sizes/font_size = 20
+theme_override_colors/font_color = Color(0.9, 0.8, 0.6, 1)
+theme_override_colors/font_hover_color = Color(1, 0.9, 0.5, 1)
+theme_override_colors/font_disabled_color = Color(0.4, 0.3, 0.2, 0.5)
+theme_override_styles/normal = SubResource("StyleBoxFlat_3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_3")
+theme_override_styles/focus = SubResource("StyleBoxFlat_6")
+custom_minimum_size = Vector2(0, 50)
+
+[node name="SaveSlot3" type="Button" parent="UILayer/LoadGamePanel/LoadGameContainer/SaveSlotContainer" layout_mode=2]
+text = "存档槽 3 - 空"
+horizontal_alignment = 0
+theme_override_fonts/font = ExtResource("3")
+theme_override_font_sizes/font_size = 20
+theme_override_colors/font_color = Color(0.9, 0.8, 0.6, 1)
+theme_override_colors/font_hover_color = Color(1, 0.9, 0.5, 1)
+theme_override_colors/font_disabled_color = Color(0.4, 0.3, 0.2, 0.5)
+theme_override_styles/normal = SubResource("StyleBoxFlat_3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_3")
+theme_override_styles/focus = SubResource("StyleBoxFlat_6")
+custom_minimum_size = Vector2(0, 50)
+
+[node name="BtnBackFromLoad" type="Button" parent="UILayer/LoadGamePanel/LoadGameContainer" layout_mode=2]
+text = "返回"
+theme_override_fonts/font = ExtResource("3")
+theme_override_font_sizes/font_size = 24
+theme_override_colors/font_color = Color(0.95, 0.85, 0.65, 1)
+theme_override_colors/font_hover_color = Color(1, 0.9, 0.5, 1)
+theme_override_colors/font_pressed_color = Color(0.8, 0.65, 0.3, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6")
+theme_override_styles/focus = SubResource("StyleBoxFlat_4")
+custom_minimum_size = Vector2(200, 50)
+
+[node name="VersionLabel" type="Label" parent="UILayer" layout_mode=2]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -250
+offset_top = -40
+offset_right = -20
+offset_bottom = -10
+text = "v0.1.0 | 神游工作室"
+horizontal_alignment = 2
+theme_override_fonts/font = ExtResource("3")
+theme_override_font_sizes/font_size = 14
+theme_override_colors/font_color = Color(0.6, 0.5, 0.4, 0.7)
+
+[node name="CopyrightLabel" type="Label" parent="UILayer" layout_mode=2]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -250
+offset_top = -70
+offset_right = -20
+offset_bottom = -40
+text = "© 2026 武侠江湖计划"
+horizontal_alignment = 2
+theme_override_fonts/font = ExtResource("3")
+theme_override_font_sizes/font_size = 12
+theme_override_colors/font_color = Color(0.5, 0.4, 0.3, 0.5)
+
+[node name="MainMenuMusic" type="AudioStreamPlayer" parent="UILayer" layout_mode=2]
+stream = ExtResource("4")
+autoplay = true
+volume_db = -10.0
+
+[node name="MenuClickPlayer" type="AudioStreamPlayer" parent="UILayer" layout_mode=2]
+stream = ExtResource("5")
+volume_db = -5.0
+
+[node name="MenuHoverPlayer" type="AudioStreamPlayer" parent="UILayer" layout_mode=2]
+stream = ExtResource("6")
+volume_db = -10.0
