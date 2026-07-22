@@ -1,40 +1,13 @@
-# Godot 4+ specific ignores
+# Godot 4
 .godot/
-*.uid
 *.import
 *.translation
-*.cfg.bak
-
-# Build outputs
 export/
-build/
-bin/
-*.pck
-*.exe
-*.apk
-*.ipa
-*.app
-
-# IDE and editor files
+exports/
 .vscode/
 .idea/
-*.sublime-project
-*.sublime-workspace
-*.swp
-*.swo
-*~
-.DS_Store
-Thumbs.db
-
-# Logs
 *.log
-logs/
 
-# Temp files
-*.tmp
-*.temp
-temp/
-
-# OS generated
-ehthumbs.db
-Desktop.ini
+# OS
+Thumbs.db
+.DS_Store

@@ -1,0 +1,176 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4wq6by8rti2x"]
+
+[ext_resource type="Script" path="res://scripts/char_select.gd" id="1_w4tq5"]
+
+[node name="CharSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_w4tq5")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0745098, 0.0705882, 0.0627451, 1)
+
+[node name="TitleLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 20
+offset_top = 12
+offset_right = 220
+offset_bottom = 52
+theme_override_colors/font_color = Color(0.929412, 0.819608, 0.560784, 1)
+theme_override_colors/font_outline_color = Color(0.129412, 0.0980392, 0.0431373, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 36
+text = "选择你的角色"
+vertical_alignment = 1
+
+[node name="BackBtn" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -96
+offset_top = 16
+offset_right = -16
+offset_bottom = 56
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 16
+text = "← 返回"
+
+[node name="MainHBox" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_left = 16
+offset_top = 60
+offset_right = -16
+offset_bottom = -16
+
+[node name="LeftPanel" type="VBoxContainer" parent="MainHBox"]
+custom_minimum_size = Vector2(420, 0)
+layout_mode = 2
+theme_override_constants/separation = 8
+size_flags_horizontal = 2
+
+[node name="SectionLabel" type="Label" parent="MainHBox/LeftPanel"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.745098, 0.745098, 0.709804, 1)
+theme_override_font_sizes/font_size = 14
+text = "— 选择角色 —"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CharList" type="GridContainer" parent="MainHBox/LeftPanel"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 12
+theme_override_constants/h_separation = 12
+theme_override_constants/v_separation = 12
+columns = 2
+
+[node name="CenterPanel" type="VBoxContainer" parent="MainHBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+size_flags_horizontal = 3
+
+[node name="PortraitRect" type="ColorRect" parent="MainHBox/CenterPanel"]
+layout_mode = 2
+custom_minimum_size = Vector2(240, 300)
+color = Color(0.117647, 0.109804, 0.0901961, 1)
+size_flags_vertical = 3
+
+[node name="PortraitLabel" type="Label" parent="MainHBox/CenterPanel/PortraitRect"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 96
+text = "🗡️"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RightPanel" type="VBoxContainer" parent="MainHBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+size_flags_horizontal = 2
+
+[node name="NameLabel" type="Label" parent="MainHBox/RightPanel"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.929412, 0.819608, 0.560784, 1)
+theme_override_font_sizes/font_size = 32
+text = "云飞扬"
+vertical_alignment = 1
+
+[node name="Divider" type="HSeparator" parent="MainHBox/RightPanel"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.929412, 0.819608, 0.560784, 0.3)
+
+[node name="DescLabel" type="Label" parent="MainHBox/RightPanel"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.745098, 0.745098, 0.709804, 1)
+theme_override_font_sizes/font_size = 16
+text = "剑法飘逸，行侠仗义"
+autowrap_mode = 2
+vertical_alignment = 1
+size_flags_vertical = 1
+
+[node name="StatsBox" type="VBoxContainer" parent="MainHBox/RightPanel"]
+layout_mode = 2
+theme_override_constants/separation = 4
+size_flags_vertical = 1
+
+[node name="HPLabel" type="Label" parent="MainHBox/RightPanel/StatsBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.929412, 0.419608, 0.419608, 1)
+theme_override_font_sizes/font_size = 16
+text = "气血：85"
+
+[node name="AtkLabel" type="Label" parent="MainHBox/RightPanel/StatsBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.929412, 0.819608, 0.560784, 1)
+theme_override_font_sizes/font_size = 16
+text = "攻击：90"
+
+[node name="SpdLabel" type="Label" parent="MainHBox/RightPanel/StatsBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.619608, 0.819608, 0.929412, 1)
+theme_override_font_sizes/font_size = 16
+text = "身法：80"
+
+[node name="ConfirmBtn" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+offset_left = -160
+offset_top = -60
+offset_right = -16
+offset_bottom = -16
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 22
+text = "确认选择"

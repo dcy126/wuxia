@@ -1,0 +1,158 @@
+[gd_scene format=3 uid="uid://c8sgrbkg4vpvq"]
+
+[ext_resource type="Script" uid="uid://cskmhjiytd77y" path="res://scripts/main_menu.gd" id="1_2k3b5"]
+
+[node name="MainMenu" type="Control" unique_id=1902624859]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_2k3b5")
+
+[node name="Background" type="ColorRect" parent="." unique_id=970908585]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0745098, 0.0705882, 0.0627451, 1)
+
+[node name="BgParticles" type="GPUParticles2D" parent="." unique_id=1859549158]
+amount = 60
+lifetime = 8.0
+preprocess = 3.0
+speed_scale = 0.3
+
+[node name="BgParticles2" type="GPUParticles2D" parent="." unique_id=222275697]
+amount = 30
+lifetime = 12.0
+preprocess = 2.0
+speed_scale = 0.15
+draw_order = 2
+
+[node name="TitleBox" type="VBoxContainer" parent="." unique_id=1115836280]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -300.0
+offset_right = 200.0
+offset_bottom = -200.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleLabel" type="Label" parent="TitleBox" unique_id=1441078221]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.929412, 0.819608, 0.560784, 1)
+theme_override_colors/font_outline_color = Color(0.129412, 0.0980392, 0.0431373, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 64
+text = "江湖行"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SubtitleLabel" type="Label" parent="TitleBox" unique_id=412629584]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.745098, 0.745098, 0.709804, 1)
+theme_override_font_sizes/font_size = 18
+text = "— 剑挑江湖风雨，醉卧江山如画 —"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StartGameBtn" type="Button" parent="." unique_id=880559346]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = 160.0
+offset_right = 100.0
+offset_bottom = 210.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+text = "开始游戏"
+
+[node name="CharSelectBox" type="HBoxContainer" parent="." unique_id=1357167546]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = 90.0
+offset_right = 120.0
+offset_bottom = 135.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+
+[node name="CharLabel" type="Label" parent="CharSelectBox" unique_id=1762427588]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.745098, 0.745098, 0.709804, 1)
+theme_override_font_sizes/font_size = 18
+text = "选择角色"
+vertical_alignment = 1
+
+[node name="CharPreviewBtn" type="Button" parent="CharSelectBox" unique_id=1031699672]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "👤"
+
+[node name="SettingsBtn" type="Button" parent="." unique_id=968260480]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -56.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = 56.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 16
+text = "⚙ 设置"
+
+[node name="VersionLabel" type="Label" parent="." unique_id=1430794148]
+layout_mode = 0
+anchor_left = 0.5
+anchor_right = 0.5
+offset_top = -40.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
+theme_override_font_sizes/font_size = 12
+text = "v1.0.0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CopyrightLabel" type="Label" parent="." unique_id=1580250334]
+layout_mode = 0
+anchor_left = 0.5
+anchor_right = 0.5
+offset_top = -24.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
+theme_override_font_sizes/font_size = 10
+text = "© 2026 江湖工作室"
+horizontal_alignment = 1
+vertical_alignment = 1
