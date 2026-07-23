@@ -21,6 +21,9 @@ var current_index = 0
 func _ready():
 	back_btn.pressed.connect(_on_back_pressed)
 	confirm_btn.pressed.connect(_on_confirm_pressed)
+	if Globals.pending_character:
+		characters.append(Globals.pending_character)
+		Globals.pending_character = null
 	_create_char_buttons()
 
 func _create_char_buttons():
@@ -62,18 +65,7 @@ func _on_char_selected(index: int):
 	show_character(index)
 
 func _on_create_char_pressed():
-	portrait_label.text = "＋"
-	name_label.text = "创建角色"
-	desc_label.text = "打造属于你的江湖侠客"
-	hp_label.text = "气血：--"
-	atk_label.text = "攻击：--"
-	spd_label.text = "身法：--"
-
-	for i in range(char_list.get_child_count()):
-		var entry = char_list.get_child(i)
-		if entry is Button:
-			var name_label_node = entry.get_node("VBox/NameLabel")
-			name_label_node.add_theme_color_override("font_color", Color(0.929, 0.82, 0.561, 1) if i == characters.size() else Color(0.745, 0.745, 0.71, 1))
+	get_tree().change_scene_to_file("res://scenes/char_create/char_create.tscn")
 
 func _on_confirm_pressed():
 	get_tree().change_scene_to_file("res://scenes/game/game.tscn")

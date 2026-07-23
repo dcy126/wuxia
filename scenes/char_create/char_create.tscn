@@ -1,0 +1,453 @@
+[gd_scene load_steps=2 format=3 uid="uid://drsrnaan7ir3m"]
+
+[ext_resource type="Script" path="res://scripts/char_create.gd" id="1_2t4ef"]
+
+[node name="CharCreate" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_2t4ef")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0745098, 0.0705882, 0.0627451, 1)
+
+[node name="QuizUI" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleLabel" type="Label" parent="QuizUI"]
+layout_mode = 0
+offset_left = 20
+offset_top = 12
+offset_right = 300
+offset_bottom = 52
+theme_override_colors/font_color = Color(0.929412, 0.819608, 0.560784, 1)
+theme_override_colors/font_outline_color = Color(0.129412, 0.0980392, 0.0431373, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 32
+text = "创建角色"
+vertical_alignment = 1
+
+[node name="ProgressLabel" type="Label" parent="QuizUI"]
+layout_mode = 0
+offset_left = 320
+offset_top = 20
+offset_right = 520
+offset_bottom = 48
+theme_override_colors/font_color = Color(0.745098, 0.745098, 0.709804, 1)
+theme_override_font_sizes/font_size = 18
+text = "第 1 / 5 题"
+vertical_alignment = 1
+
+[node name="QuestionLabel" type="Label" parent="QuizUI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320
+offset_top = -200
+offset_right = 320
+offset_bottom = -120
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.929412, 0.819608, 0.560784, 1)
+theme_override_font_sizes/font_size = 26
+text = "问题内容"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="AnswerContainer" type="VBoxContainer" parent="QuizUI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320
+offset_top = -80
+offset_right = 320
+offset_bottom = 120
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+
+[node name="BackBtn" type="Button" parent="QuizUI"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -96
+offset_top = 16
+offset_right = -16
+offset_bottom = 56
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 16
+text = "← 返回"
+
+[node name="RollUI" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+visible = false
+
+[node name="TitleLabel" type="Label" parent="RollUI"]
+layout_mode = 0
+offset_left = 20
+offset_top = 12
+offset_right = 300
+offset_bottom = 52
+theme_override_colors/font_color = Color(0.929412, 0.819608, 0.560784, 1)
+theme_override_colors/font_outline_color = Color(0.129412, 0.0980392, 0.0431373, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 32
+text = "角色属性"
+vertical_alignment = 1
+
+[node name="BackBtn" type="Button" parent="RollUI"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -96
+offset_top = 16
+offset_right = -16
+offset_bottom = 56
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 16
+text = "← 返回"
+
+[node name="MainHBox" type="HBoxContainer" parent="RollUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_left = 16
+offset_top = 60
+offset_right = -16
+offset_bottom = -72
+
+[node name="LeftPanel" type="VBoxContainer" parent="RollUI/MainHBox"]
+layout_mode = 2
+theme_override_constants/separation = 12
+size_flags_horizontal = 1
+
+[node name="PortraitBtn" type="Button" parent="RollUI/MainHBox/LeftPanel"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "🗡️"
+size_flags_vertical = 3
+
+[node name="NameRow" type="HBoxContainer" parent="RollUI/MainHBox/LeftPanel"]
+layout_mode = 2
+theme_override_constants/separation = 8
+size_flags_vertical = 1
+
+[node name="NameLabel" type="Label" parent="RollUI/MainHBox/LeftPanel/NameRow"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.929412, 0.819608, 0.560784, 1)
+theme_override_font_sizes/font_size = 22
+text = "江湖侠客"
+horizontal_alignment = 1
+vertical_alignment = 1
+size_flags_horizontal = 3
+
+[node name="EditNameBtn" type="Button" parent="RollUI/MainHBox/LeftPanel/NameRow"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "✏️"
+custom_minimum_size = Vector2(36, 36)
+
+[node name="RightPanel" type="VBoxContainer" parent="RollUI/MainHBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+size_flags_horizontal = 3
+
+[node name="TabBar" type="HBoxContainer" parent="RollUI/MainHBox/RightPanel"]
+layout_mode = 2
+theme_override_constants/separation = 4
+size_flags_vertical = 1
+
+[node name="StatsTabBtn" type="Button" parent="RollUI/MainHBox/RightPanel/TabBar"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "角色属性"
+size_flags_horizontal = 3
+
+[node name="TalentTabBtn" type="Button" parent="RollUI/MainHBox/RightPanel/TabBar"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "天赋"
+size_flags_horizontal = 3
+
+[node name="TabContent" type="VBoxContainer" parent="RollUI/MainHBox/RightPanel"]
+layout_mode = 2
+theme_override_constants/separation = 12
+size_flags_vertical = 5
+
+[node name="StatsTab" type="VBoxContainer" parent="RollUI/MainHBox/RightPanel/TabContent"]
+layout_mode = 2
+theme_override_constants/separation = 8
+size_flags_vertical = 3
+
+[node name="ResultHP" type="Label" parent="RollUI/MainHBox/RightPanel/TabContent/StatsTab"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.929412, 0.419608, 0.419608, 1)
+theme_override_font_sizes/font_size = 24
+text = "气血：85"
+vertical_alignment = 1
+
+[node name="ResultAtk" type="Label" parent="RollUI/MainHBox/RightPanel/TabContent/StatsTab"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.929412, 0.819608, 0.560784, 1)
+theme_override_font_sizes/font_size = 24
+text = "攻击：90"
+vertical_alignment = 1
+
+[node name="ResultSpd" type="Label" parent="RollUI/MainHBox/RightPanel/TabContent/StatsTab"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.619608, 0.819608, 0.929412, 1)
+theme_override_font_sizes/font_size = 24
+text = "身法：80"
+vertical_alignment = 1
+
+[node name="TalentTab" type="VBoxContainer" parent="RollUI/MainHBox/RightPanel/TabContent"]
+layout_mode = 2
+theme_override_constants/separation = 8
+size_flags_vertical = 3
+visible = false
+
+[node name="ResultTalent" type="Label" parent="RollUI/MainHBox/RightPanel/TabContent/TalentTab"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.619608, 0.819608, 0.929412, 1)
+theme_override_font_sizes/font_size = 24
+text = "天赋：仁心"
+vertical_alignment = 1
+
+[node name="DiceBtn" type="Button" parent="RollUI"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+offset_left = -136
+offset_top = -56
+offset_right = -80
+offset_bottom = -16
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 28
+text = "🎲"
+
+[node name="ConfirmBtn" type="Button" parent="RollUI"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+offset_left = -68
+offset_top = -56
+offset_right = -16
+offset_bottom = -16
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 28
+text = "✅"
+
+[node name="NameDialog" type="Control" parent="RollUI"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="Overlay" type="ColorRect" parent="RollUI/NameDialog"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.6)
+mouse_filter = 1
+
+[node name="DialogBox" type="VBoxContainer" parent="RollUI/NameDialog"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200
+offset_top = -100
+offset_right = 200
+offset_bottom = 0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+
+[node name="DialogTitle" type="Label" parent="RollUI/NameDialog/DialogBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.929412, 0.819608, 0.560784, 1)
+theme_override_font_sizes/font_size = 24
+text = "修改角色名"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NameInput" type="LineEdit" parent="RollUI/NameDialog/DialogBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.929412, 0.819608, 0.560784, 1)
+theme_override_font_sizes/font_size = 22
+placeholder_text = "请输入角色名"
+horizontal_alignment = 1
+size_flags_horizontal = 3
+
+[node name="DialogBtns" type="HBoxContainer" parent="RollUI/NameDialog/DialogBox"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="NameCancelBtn" type="Button" parent="RollUI/NameDialog/DialogBox/DialogBtns"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "取消"
+size_flags_horizontal = 3
+
+[node name="NameConfirmBtn" type="Button" parent="RollUI/NameDialog/DialogBox/DialogBtns"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "确认"
+size_flags_horizontal = 3
+
+[node name="AvatarDialog" type="Control" parent="RollUI"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="Overlay" type="ColorRect" parent="RollUI/AvatarDialog"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.6)
+mouse_filter = 1
+
+[node name="DialogBox" type="VBoxContainer" parent="RollUI/AvatarDialog"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240
+offset_top = -140
+offset_right = 240
+offset_bottom = 60
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+
+[node name="DialogTitle" type="Label" parent="RollUI/AvatarDialog/DialogBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.929412, 0.819608, 0.560784, 1)
+theme_override_font_sizes/font_size = 24
+text = "选择头像"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AvatarGrid" type="GridContainer" parent="RollUI/AvatarDialog/DialogBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 8
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+columns = 3
+size_flags_horizontal = 3
+
+[node name="Avatar0" type="Button" parent="RollUI/AvatarDialog/DialogBox/AvatarGrid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "🗡️"
+custom_minimum_size = Vector2(64, 64)
+
+[node name="Avatar1" type="Button" parent="RollUI/AvatarDialog/DialogBox/AvatarGrid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "🌸"
+custom_minimum_size = Vector2(64, 64)
+
+[node name="Avatar2" type="Button" parent="RollUI/AvatarDialog/DialogBox/AvatarGrid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "👊"
+custom_minimum_size = Vector2(64, 64)
+
+[node name="Avatar3" type="Button" parent="RollUI/AvatarDialog/DialogBox/AvatarGrid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "🎵"
+custom_minimum_size = Vector2(64, 64)
+
+[node name="Avatar4" type="Button" parent="RollUI/AvatarDialog/DialogBox/AvatarGrid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "🐉"
+custom_minimum_size = Vector2(64, 64)
+
+[node name="Avatar5" type="Button" parent="RollUI/AvatarDialog/DialogBox/AvatarGrid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "🦅"
+custom_minimum_size = Vector2(64, 64)
+
+[node name="AvatarDialogConfirm" type="Button" parent="RollUI/AvatarDialog/DialogBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "确认选择"
