@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://bw0pv4kmqk47t"]
+[gd_scene format=3 uid="uid://bw0pv4kmqk47t"]
 
-[ext_resource type="Script" path="res://scripts/world_map.gd" id="1_k6xqp"]
+[ext_resource type="Script" uid="uid://b7cljfxiqmgar" path="res://scripts/world_map.gd" id="1_k6xqp"]
 
-[node name="WorldMap" type="Control"]
+[node name="WorldMap" type="Control" unique_id=894553526]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,7 +11,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_k6xqp")
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="." unique_id=412403066]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -20,20 +20,20 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.145098, 0.12549, 0.0862745, 1)
 
-[node name="MapPanel" type="ColorRect" parent="."]
+[node name="MapPanel" type="ColorRect" parent="." unique_id=1948329359]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 60.0
+offset_right = -240.0
+offset_bottom = -16.0
 grow_horizontal = 2
 grow_vertical = 2
-offset_left = 16
-offset_top = 60
-offset_right = -240
-offset_bottom = -16
 color = Color(0.188235, 0.164706, 0.113725, 1)
 
-[node name="MapContainer" type="Control" parent="MapPanel"]
+[node name="MapContainer" type="Control" parent="MapPanel" unique_id=1022612696]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -42,77 +42,79 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="PlayerIcon" type="Label" parent="MapContainer"]
+[node name="PlayerIcon" type="Label" parent="." unique_id=147938508]
 unique_name_in_owner = true
-text = "🧑"
+layout_mode = 0
 theme_override_font_sizes/font_size = 32
+text = "🧑"
 
-[node name="InfoPanel" type="VBoxContainer" parent="."]
+[node name="InfoPanel" type="VBoxContainer" parent="." unique_id=880329062]
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -224
-offset_top = 60
-offset_right = -16
+offset_left = -224.0
+offset_top = 60.0
+offset_right = -16.0
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_constants/separation = 8
 
-[node name="InfoTitle" type="Label" parent="InfoPanel"]
+[node name="InfoTitle" type="Label" parent="InfoPanel" unique_id=662654539]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.929412, 0.819608, 0.560784, 1)
 theme_override_font_sizes/font_size = 20
 text = "当前地点"
 
-[node name="LocName" type="Label" parent="InfoPanel"]
+[node name="LocName" type="Label" parent="InfoPanel" unique_id=367960324]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.929412, 0.819608, 0.560784, 1)
 theme_override_font_sizes/font_size = 28
 text = "新手村"
 
-[node name="Divider" type="HSeparator" parent="InfoPanel"]
+[node name="Divider" type="HSeparator" parent="InfoPanel" unique_id=1059163180]
 layout_mode = 2
-theme_override_colors/default_color = Color(0.929412, 0.819608, 0.560784, 0.2)
 
-[node name="LocDesc" type="Label" parent="InfoPanel"]
+[node name="LocDesc" type="Label" parent="InfoPanel" unique_id=50435389]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_vertical = 3
 theme_override_colors/font_color = Color(0.745098, 0.745098, 0.709804, 1)
 theme_override_font_sizes/font_size = 16
 text = "江湖梦开始的地方"
 autowrap_mode = 2
-size_flags_vertical = 3
 
-[node name="CharInfo" type="HBoxContainer" parent="."]
+[node name="CharInfo" type="HBoxContainer" parent="." unique_id=728248713]
 layout_mode = 0
-offset_left = 20
-offset_top = 12
+offset_left = 20.0
+offset_top = 12.0
 theme_override_constants/separation = 12
 
-[node name="CharAvatar" type="Label" parent="CharInfo"]
+[node name="CharAvatar" type="Label" parent="CharInfo" unique_id=679354081]
 unique_name_in_owner = true
+layout_mode = 2
 theme_override_font_sizes/font_size = 28
 text = "🗡️"
 vertical_alignment = 1
 
-[node name="CharName" type="Label" parent="CharInfo"]
+[node name="CharName" type="Label" parent="CharInfo" unique_id=1217335042]
 unique_name_in_owner = true
+layout_mode = 2
 theme_override_colors/font_color = Color(0.929412, 0.819608, 0.560784, 1)
 theme_override_font_sizes/font_size = 22
 text = "江湖侠客"
 vertical_alignment = 1
 
-[node name="BackBtn" type="Button" parent="."]
+[node name="BackBtn" type="Button" parent="." unique_id=1048770534]
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -96
-offset_top = 16
-offset_right = -16
-offset_bottom = 56
+offset_left = -96.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = 56.0
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_font_sizes/font_size = 16

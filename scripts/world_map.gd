@@ -12,9 +12,9 @@ var locations = {
 var current_location = "village"
 
 @onready var map_container = $MapPanel/MapContainer
-@onready var player_icon = $MapPanel/MapContainer/PlayerIcon
-@onready var loc_name = $InfoPanel/LocName
-@onready var loc_desc = $InfoPanel/LocDesc
+@onready var player_icon = %PlayerIcon
+@onready var loc_name = %LocName
+@onready var loc_desc = %LocDesc
 @onready var back_btn = $BackBtn
 @onready var char_avatar = %CharAvatar
 @onready var char_name = %CharName
