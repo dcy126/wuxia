@@ -68,7 +68,9 @@ func _on_create_char_pressed():
 	get_tree().change_scene_to_file("res://scenes/char_create/char_create.tscn")
 
 func _on_confirm_pressed():
-	get_tree().change_scene_to_file("res://scenes/game/game.tscn")
+	if characters.size() > current_index:
+		Globals.current_character = characters[current_index]
+	get_tree().change_scene_to_file("res://scenes/world_map/world_map.tscn")
 
 func _on_back_pressed():
 	get_tree().change_scene_to_file("res://scenes/main_menu/main_menu.tscn")

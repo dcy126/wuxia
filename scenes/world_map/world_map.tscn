@@ -1,0 +1,119 @@
+[gd_scene load_steps=2 format=3 uid="uid://bw0pv4kmqk47t"]
+
+[ext_resource type="Script" path="res://scripts/world_map.gd" id="1_k6xqp"]
+
+[node name="WorldMap" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_k6xqp")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.145098, 0.12549, 0.0862745, 1)
+
+[node name="MapPanel" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_left = 16
+offset_top = 60
+offset_right = -240
+offset_bottom = -16
+color = Color(0.188235, 0.164706, 0.113725, 1)
+
+[node name="MapContainer" type="Control" parent="MapPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="PlayerIcon" type="Label" parent="MapContainer"]
+unique_name_in_owner = true
+text = "🧑"
+theme_override_font_sizes/font_size = 32
+
+[node name="InfoPanel" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -224
+offset_top = 60
+offset_right = -16
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/separation = 8
+
+[node name="InfoTitle" type="Label" parent="InfoPanel"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.929412, 0.819608, 0.560784, 1)
+theme_override_font_sizes/font_size = 20
+text = "当前地点"
+
+[node name="LocName" type="Label" parent="InfoPanel"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.929412, 0.819608, 0.560784, 1)
+theme_override_font_sizes/font_size = 28
+text = "新手村"
+
+[node name="Divider" type="HSeparator" parent="InfoPanel"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.929412, 0.819608, 0.560784, 0.2)
+
+[node name="LocDesc" type="Label" parent="InfoPanel"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.745098, 0.745098, 0.709804, 1)
+theme_override_font_sizes/font_size = 16
+text = "江湖梦开始的地方"
+autowrap_mode = 2
+size_flags_vertical = 3
+
+[node name="CharInfo" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 20
+offset_top = 12
+theme_override_constants/separation = 12
+
+[node name="CharAvatar" type="Label" parent="CharInfo"]
+unique_name_in_owner = true
+theme_override_font_sizes/font_size = 28
+text = "🗡️"
+vertical_alignment = 1
+
+[node name="CharName" type="Label" parent="CharInfo"]
+unique_name_in_owner = true
+theme_override_colors/font_color = Color(0.929412, 0.819608, 0.560784, 1)
+theme_override_font_sizes/font_size = 22
+text = "江湖侠客"
+vertical_alignment = 1
+
+[node name="BackBtn" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -96
+offset_top = 16
+offset_right = -16
+offset_bottom = 56
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 16
+text = "← 返回"
