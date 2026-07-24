@@ -5,6 +5,7 @@ enum Phase { QUIZ, ROLL }
 var current_phase = Phase.QUIZ
 var current_question = 0
 var stats = {"hp": 50, "atk": 50, "spd": 50}
+var roll_bonus = {"hp": 0, "atk": 0, "spd": 0}
 var talent = ""
 var selected_avatar = "🗡️"
 var current_tab = 0
@@ -198,25 +199,21 @@ func show_roll_phase():
 func _do_roll():
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
-	var roll_hp = rng.randi_range(20, 40)
-	var roll_atk = rng.randi_range(20, 40)
-	var roll_spd = rng.randi_range(20, 40)
-	stats.hp += roll_hp
-	stats.atk += roll_atk
-	stats.spd += roll_spd
+	roll_bonus.hp = rng.randi_range(20, 40)
+	roll_bonus.atk = rng.randi_range(20, 40)
+	roll_bonus.spd = rng.randi_range(20, 40)
 	update_roll_display()
+
+func total_stats(stat_name: String) -> int:
+	return stats[stat_name] + roll_bonus[stat_name]
 
 func update_roll_display():
 	result_talent.text = "天赋：" + (talent if talent != "" else "无")
-	result_hp.text = "气血：" + str(stats.hp)
-	result_atk.text = "攻击：" + str(stats.atk)
-	result_spd.text = "身法：" + str(stats.spd)
+	result_hp.text = "气血：" + str(total_stats("hp"))
+	result_atk.text = "攻击：" + str(total_stats("atk"))
+	result_spd.text = "身法：" + str(total_stats("spd"))
 
 func _on_roll_pressed():
-	stats.hp = 50
-	stats.atk = 50
-	stats.spd = 50
-	talent = ""
 	_on_stats_tab_pressed()
 	_do_roll()
 
@@ -228,9 +225,9 @@ func _on_confirm_pressed():
 		"name": char_name,
 		"desc": "初出茅庐的江湖新人",
 		"icon": selected_avatar,
-		"hp": stats.hp,
-		"atk": stats.atk,
-		"spd": stats.spd,
+		"hp": total_stats("hp"),
+		"atk": total_stats("atk"),
+		"spd": total_stats("spd"),
 		"talent": talent,
 	}
 	get_tree().change_scene_to_file("res://scenes/char_select/char_select.tscn")
