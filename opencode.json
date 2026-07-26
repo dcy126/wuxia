@@ -1,0 +1,14 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "godot-mcp": {
+      "type": "local",
+      "command": ["npx", "-y", "@yanhuifair/godot-mcp", "-p", "."],
+      "enabled": true,
+      "timeout": 30000,
+      "environment": {
+        "GODOT_PATH": "D:\\backups\\开发工具\\godot\\Godot_v4.8-dev2_win64_console.exe"
+      }
+    }
+  }
+}
